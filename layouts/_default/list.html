@@ -1,0 +1,27 @@
+{{ define "main" }}
+	<main class="column is-full-tablet is-8-desktop">
+		{{ partial "widgets/breadcrumbs.html" . }}
+		<div class="content">
+			{{ .Content }}
+		</div>
+		{{- range .Data.Pages.GroupByDate "2006" }}
+		<div class="posts-group">
+			<div class="post-year" id="{{ .Key }}">{{ .Key }}</div>
+			<ul class="posts-list">
+				{{- range .Pages }}
+				<li class="post-item">
+					<a href="{{.Permalink}}">
+						<span class="post-title">{{.Title}}</span>
+						<span class="post-day">{{ .Date.Format (.Site.Language.Get "time_format_blog") }}</span>
+					</a>
+				</li>
+				{{- end }}
+			</ul>
+		</div>
+		{{- end }}
+	</main>
+{{ end }}
+
+{{ define "footer" }}
+{{ partialCached "footer.html" . }}
+{{ end }}

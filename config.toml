@@ -2,9 +2,6 @@ baseURL = "/"
 title = "Flux"
 enableRobotsTXT = true
 
-# Disable taxonomies globally
-disableKinds = ["taxonomy", "taxonomyTerm"]
-
 # Language configuration
 contentDir = "content/en"
 defaultContentLanguage = "en"
@@ -28,8 +25,8 @@ enableGitInfo = true
 [languages.en]
 languageName = "English"
 languageCode = "en-us"
-time_format_default = "01/02/2006"
-time_format_blog = "01/02/2006"
+time_format_default = "2006-01-02"
+time_format_blog = "2006-01-02"
 
 [[menus.main]]
 identifier = "project"
@@ -64,6 +61,12 @@ name = "Branding"
 parent = "project"
 url = "https://branding.cncf.io/projects/flux"
 weight = 5
+
+[[menus.main]]
+name = "Blog"
+parent = "project"
+url = "/blog"
+weight = 6
 
 [params]
 description          = "Open and extensible continuous delivery solution for Kubernetes."
